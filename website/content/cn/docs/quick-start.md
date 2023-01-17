@@ -40,43 +40,121 @@ hugo v0.109.0-47b12b83e636224e5e601813ff3e6790c191e371+extended darwin/amd64 Bui
 终端 cd 到项目目录
 
 ```bash
-hugo new site document-hello -f yaml
+hugo new site quick-docs-start -f yaml
 ```
 
-- 生成项目根目录`document-hello`
-- -f yaml 使用yaml格式配置文件，默认toml不常用，或者 -f json
+- 生成项目根目录`quick-docs-start`
+- -f yaml 使用yaml格式配置文件，默认toml不常用，或者 -f json, 推荐用yaml
 
-### 添加主题
+## 添加主题模块
 
-必须要添加主题
+1. 将网站初始化模块
 
-## 启动本地开发
+此操作类似`npm init`生成package.json
 
+`nicklin99` 换成自己的 username
+`quick-docs-start` 换成自己的site名称
+
+```bash
+hugo mod init github.com/nicklin99/quick-docs-start
 ```
+
+2. 配置依赖包
+
+此操作类似`npm install bootstrap`, 只是`npm 将安装和配置一步到位了`
+
+go module，还是分开操作的，config.yaml 配置所需要的依赖包
+
+```yaml config.yaml
+module:
+  proxy: https://proxy.golang.com.cn,direct
+  imports:
+  - path: github.com/nicklin99/quick-docs-basic
+```
+
+3. 安装依赖模块`quick-docs-basic`
+
+此操作类似`npm install`下载安装依赖
+
+```bash
+hugo mod get github.com/nicklin99/quick-docs-basic
+```
+
+安装后就可以启动了
+
+4. 启动
+
+```bash
 hugo server -D
 ```
 
-- D 表示包含草稿文件
+成功后，启动后会发现除了首页，进入文档页面都是空的,接下来就是编写内容
+
+## 编写文档
+
+```bash
+hugo new content/hello.md
+```
+
+## 配置文件
+
+建议参考`quick-docs-basic`website中的`config.yaml`配置
 
 ## 生产部署
+
+一切就绪后就可以运行下面命令生成html，默认在`public`目录下
 
 ```bash
 hugo -D 
 ```
 
+将public里内容部署到服务器即可
+
+**注意**
+
+如果部署到非根目录，修改`baseURL`后，重新运行`hugo -D`生成
+
+```yaml
+# 比如`dist`目录下
+baseURL: /dist
+```
+
 ## 多语言
 
-创建`config/_default/languages.yaml`
+默认是一个config.yaml,如果多语言建议拆分配置文件
 
-- zh-CN 简体中文
+```
+├── config
+│   ├── _default
+│   │   ├── config.yaml
+│   │   ├── languages.yaml
+│   │   └── params.yaml
+│   ├── production
+│   │   ├── config.yaml
+│   │   └── params.yaml
+│   └── staging
+│       ├── config.yaml
+│       └── params.yaml
+```
+
+- `hugo server`本地使用的_default目录下配置文件,
+- `hugo`使用的production和_default的合并配置
+- staging不是很常用
+
+更多了解[hugo配置文档](https://gohugo.io/getting-started/configuration/)
+
+继续多语言，创建`config/_default/languages.yaml`
+
+- cn 简体中文
 - en 英文
 
 ```yaml
-zh-CN:
+cn:
   params:
     linkedin: 
   title: 极速文档
   languageName: 中文
+  contentDir: content/cn
   weight: 2
 en:
   params:
@@ -92,7 +170,7 @@ en:
 
 ```yaml config.yaml
 # config.yaml
-defaultContentLanguage: zh-CN
+defaultContentLanguage: cn
 ```
 
 ### 翻译md文件
@@ -105,3 +183,21 @@ hugo支持2种方式
 不同目录需要在 languages.yaml 配置对应的`content: content/en`
 
 ### 翻译模板
+
+新建 i18n/cn.yaml 中文， i18n/en.yaml 英文
+
+```yaml cn.yaml
+- id: lastmod
+  translation: "更新时间"
+```
+
+```yaml en.yaml
+- id: lastmod
+  translation: "Last Mod"
+```
+
+模板读取
+
+```html
+{{ T "lastmod" }}
+```

@@ -85,7 +85,45 @@ menu:
 
 查看Page变量 <https://gohugo.io/variables/page/> 了解更多变量名称
 
-## vue代码片段
+## 项目设置为hugo module
+
+新建`config.yaml`文件,配置模块信息
+
+```
+module:
+  hugoVersion:
+    extended: true
+    min: 0.101.0
+  mounts:
+  - source: static
+    target: static
+  - source: layouts
+    target: layouts
+  - source: i18n
+    target: i18n
+``
+配置hugo版本，当前也忽略不填，填了当版本过低或不对会提示
+
+`mounts`也可以不填，有默认值，除非需要特别指定
+
+
+hugo module等于go module
+
+```bash
+hugo mod init github.com/nicklin99/quick-docs-basic
+```
+
+实际就是生成一个go.mod文件, 定义了module名称，go版本组合的模块信息
+
+```go
+module github.com/nicklin99/quick-docs-basic
+
+go 1.16
+```
+
+主题没有其他依赖，所有没有`require`依赖信息
+
+## vue代码片段 todo
 
 计划使用 hugo shortcode完成
 
