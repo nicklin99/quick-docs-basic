@@ -1,0 +1,22 @@
+- id: lastmod
+  translation: "更新时间"
+- id: started
+  translation: "开始"
+- id: page not found
+  translation: "页面不存在"
+- id: quick doc
+  translation: "快速搭建文档"
+- id: hugo static generate
+  translation: "静态生成"
+- id: homeStep1
+  translation: "创建站点"
+- id: home.step2
+  translation: "安装主题"
+- id: home.step3
+  translation: "启动服务"
+- id: toc.summary
+  translation: "目录"
+- id: ui.md.edit
+  translation: "编辑页面"
+- id: ui.md.view
+  translation: "查看页面"

@@ -1,0 +1,10 @@
+cn:
+  languageName: 中文
+  contentDir: content/cn
+  title: 极速文档
+  weight: 0
+en:
+  languageName: English
+  contentDir: content/en
+  title: QuickPress
+  weight: 1

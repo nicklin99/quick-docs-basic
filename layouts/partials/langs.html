@@ -1,0 +1,8 @@
+
+<ul class="dropdown-menu">
+  {{ range $.Site.Home.AllTranslations }}
+  <li>
+    <a class="dropdown-item{{ if eq $.Site.Language.Lang .Language.Lang}} active{{ end }}" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+  </li>
+  {{ end }}
+</ul>

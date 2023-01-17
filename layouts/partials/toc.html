@@ -1,0 +1,24 @@
+{{ if .File }}
+  <nav class="nav flex-column">
+    {{ $gh_repo := ($.Param "github") -}}
+    {{ $pathFormatted := replace .File.Path "\\" "/" -}}
+    {{ $gh_subdir := ($.Param "github_subdir") -}}
+    {{ $gh_branch := (default "main" ($.Param "github_branch")) -}}
+    <!-- github -->
+    {{ $gh_repo_path := printf "%s/content/%s" $gh_branch $pathFormatted -}}
+    {{ if and ($gh_subdir) (.Site.Language.Lang) -}}
+      {{ $gh_repo_path = printf "%s/%s/content/%s/%s" $gh_branch $gh_subdir ($.Site.Language.Lang) $pathFormatted -}}
+    {{ else if .Site.Language.Lang -}}
+      {{ $gh_repo_path = printf "%s/content/%s/%s" $gh_branch ($.Site.Language.Lang) $pathFormatted -}}
+    {{ else if $gh_subdir -}}
+      {{ $gh_repo_path = printf "%s/%s/content/%s" $gh_branch $gh_subdir $pathFormatted -}}
+    {{ end -}}
+    {{ $viewURL := printf "%s/tree/%s" $gh_repo $gh_repo_path -}}
+    {{ $editURL := printf "%s/edit/%s" $gh_repo $gh_repo_path -}}
+    <a href="{{ $viewURL }}" class="nav-link" target="_blank" rel="noopener">
+      <i data-feather="external-link"></i> {{ T "ui.md.view" }}</a>
+    <a href="{{ $editURL }}" class="nav-link" target="_blank" rel="noopener">
+      <i data-feather="edit"></i> {{ T "ui.md.edit" }}
+    </a>
+  </nav>
+{{ end }}

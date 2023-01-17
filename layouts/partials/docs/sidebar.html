@@ -1,0 +1,57 @@
+<!--
+component: sidebar tree
+data: `docs` section all md file's content
+-->
+<div class="docs-sidebar pt-6 pt-lg-7">
+  <nav class="nav flex-column">
+  {{ $navRoot := .FirstSection}}
+  {{ template  "menus" ( dict "page" . "root" $navRoot ) }}
+
+  {{ define "menus" }}
+    {{ $root := .root }}
+    {{ $page := .page }}
+    {{ $menus := where (union $root.Pages $root.Sections).ByWeight ".Params.toc_hide" "!=" true }}
+    {{ $depth := 1 }}
+    {{ range $menus }}
+      {{ template "menu-item" ( dict "page" $page "menu" . "depth" $depth) }}
+    {{ end }}
+  {{ end }}
+
+  {{ define "menu-item" }}
+    {{ $menu := .menu }}
+    {{ $page := .page }}
+    {{ $depth := .depth }}
+    {{ $children := where (union $menu.Pages $menu.Sections).ByWeight ".Params.toc_hide" "!=" true }}
+    {{ $hasChildren := gt (len $children) 0 }}
+      {{ if and (eq $menu.Kind "section") (eq $depth 1) }}
+        <h6 class="mt-4">{{ i18n $menu.LinkTitle | default $menu.LinkTitle}}</h6>
+      {{ else }}
+        <!-- manuallink 有手动取手动，没有用relRef 方法计算 -->
+        {{ 
+          $manualLink := cond (isset $menu.Params "manuallink") $menu.Params.manualLink 
+        ( cond (isset $menu.Params "manuallinkrelref") (relref $menu $menu.Params.manualLinkRelref) $menu.RelPermalink)
+        }}
+        {{ $isActive := eq $manualLink $page.RelPermalink }}
+        {{ if eq $menu.Kind "page"}}
+        <a class="nav-link nav-link-page{{ if eq $depth 1}} nav-link-1{{ end }}{{ if $isActive}} active{{end}}" href="{{ $manualLink }}">
+          {{ i18n $menu.LinkTitle | default $menu.LinkTitle}}
+        </a>
+        {{ else }}
+        <li class="nav-item{{ if eq $menu.Kind "section" }} nav-item-section{{ end }}">
+          <a class="nav-link{{ if $isActive}} active{{end}}" href="{{ $manualLink }}">
+            {{ i18n $menu.LinkTitle | default $menu.LinkTitle}}
+          </a>
+        </li>
+        {{ end }}
+      {{ end }}
+      {{ if $hasChildren }}
+        <ul class="nav flex-column">
+          {{ range $children}}
+            {{ $dep := add $depth 1 }}
+            {{ template "menu-item" ( dict "page" $page "menu" . "depth" $dep) }}
+          {{ end }}
+        </ul>
+      {{ end }}
+  {{ end }}
+</nav>
+</div>

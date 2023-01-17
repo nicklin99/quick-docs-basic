@@ -1,0 +1,10 @@
+<ul class="breadcrumb docs-breadcrumb">
+  {{- range .Ancestors.Reverse }}
+    {{ if .Parent }}
+    <li class="breadcrumb-item"><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+    {{ end }}
+  {{- end }}
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+  </li>
+</ul>

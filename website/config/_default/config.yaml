@@ -1,0 +1,5 @@
+baseURL: /
+languageCode: cn
+theme: 'quick-docs-basic'
+copyright: 'MIT Licensed | Copyright © 2022-present Nick Lin'
+defaultContentLanguage: cn

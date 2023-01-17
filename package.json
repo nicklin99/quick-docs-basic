@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "dev": "cd website && hugo server -D --disableFastRender --themesDir ../..",
+    "build": "cd website && hugo -D --themesDir ../.."
+  },
+  "dependencies": {
+    
+  }
+}

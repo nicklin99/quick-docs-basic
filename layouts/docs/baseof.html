@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html{{ with site.Language | default site.Language.Lang }} lang="{{ if eq .Lang "cn" }}zh-CN{{ else }}{{.}}{{ end }}" {{ end }}>
+    {{- partial "docs/head.html" . -}}
+    <body class="docs">
+        <!-- Nav -->
+        {{ partial "docs/header.html" .}}
+        <div class="container-fluid container-docs">
+            <!-- Sidenav -->
+            <nav class="sidenav navbar navbar-vertical navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+                <div class="scrollbar-inner px-4">
+                    <!-- Navigation -->
+                    {{ partial "docs/sidebar.html" . }}
+                </div>
+            </nav>
+            <!-- Main content -->
+            <div class="main-content row position-relative pb-5">
+                <div class="col-xl-9 docs-content pb-5">
+                    {{ block "main" . }}
+                    <!-- Docs title -->
+                    
+                    <!-- Docs content -->
+                    {{ end }}
+                </div>
+                <div class="col-xl-3 docs-sidebar d-none d-xl-block">
+                    {{ block "toc" . }}
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+        {{partial "docs/footer.html" .}}
+    </body>
+
+    </html>

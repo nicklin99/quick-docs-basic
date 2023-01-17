@@ -1,0 +1,19 @@
+{{ define "main" }}
+<!-- Docs title -->
+<div class="docs-title docs-title-list">
+    <h1>{{ .Title }}</h1>
+    <p class="lead mb-0">{{.Description}}</p>
+</div>
+<!-- Docs content -->
+{{.Content}}
+<ul class="list-group list-group-flush doc-entry">
+    <!-- Ranges through content/posts/*.md -->
+    {{ range .Pages }}
+        <li class="list-group-item">
+            <a style="font-size: 1.2rem;" href="{{.Permalink}}">{{.Title}}</a>
+            <p>{{ .Description | markdownify }}</p>
+        </li>
+    {{ end }}
+    </ul>
+<!-- Docs content -->
+{{ end }}

@@ -1,0 +1,22 @@
+- id: lastmod
+  translation: "Last Mod"
+- id: started
+  translation: "Getting started"
+- id: page not found
+  translation: "page not found"
+- id: quick doc
+  translation: "Quick Document"
+- id: hugo static generate
+  translation: "Static generate"
+- id: homeStep1
+  translation: "new site"
+- id: home.step2
+  translation: "get theme"
+- id: home.step3
+  translation: "hugo server"
+- id: toc.summary
+  translation: "Summary"
+- id: ui.md.edit
+  translation: "Edit this page"
+- id: ui.md.view
+  translation: "View this page"

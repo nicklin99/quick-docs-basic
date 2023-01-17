@@ -1,0 +1,11 @@
+module:
+  hugoVersion:
+    extended: true
+    min: 0.101.0
+  mounts:
+  - source: static
+    target: static
+  - source: layouts
+    target: layouts
+  - source: i18n
+    target: i18n

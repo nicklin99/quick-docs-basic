@@ -1,0 +1,29 @@
+{{ $currentPage := . }}
+  {{ range .Site.Menus.main }}
+    {{ if .HasChildren }}
+      <h6 class="mt-4">{{ i18n .Identifier | default .Name}}</h6>
+      <ul class="nav flex-column">
+        {{ range .Children }}
+        <!-- bug?  -->
+        <!-- Site.Menus 默认语言包含了其他语言的菜单, 目前采取url判断过滤 -->
+        {{ if not $currentPage.Site.LanguagePrefix }}
+          {{if not (hasPrefix .URL "/en/") }}
+            <li class="nav-item">
+              <a class="nav-link {{ if $currentPage.IsMenuCurrent "docs" . }}active{{ end }}" href="{{ .URL }}">
+                {{ i18n .Identifier | default .Name}}
+              </a>
+            </li>
+          {{end}}
+        {{ else }}
+          <li class="nav-item">
+            <a class="nav-link {{ if $currentPage.IsMenuCurrent "docs" . }}active{{ end }}" href="{{ .URL }}">
+              {{ i18n .Identifier | default .Name}}
+            </a>
+          </li>
+        {{ end}}
+        {{ end }}
+      </ul>
+    {{ else }}
+      <h6 class="mt-4">{{.Name}}</h6>
+    {{ end }}
+  {{ end }}
