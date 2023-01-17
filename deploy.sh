@@ -16,6 +16,6 @@ git add -A
 git commit -m 'deploy'
 
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:nicklin99/quickDocs.git master:gh-pages
+git push -f git@github.com:nicklin99/quick-docs-basic.git master:gh-pages
 
 cd -
