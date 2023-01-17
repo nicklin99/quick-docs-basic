@@ -12,15 +12,15 @@
           </div>
           <!-- Navbar brand -->
           <a class="navbar-brand" href="/">
-              <img alt="Image placeholder" src="/assets/img/brand/dark.svg" id="navbar-logo">
+              <img alt="Image placeholder" src="{{ "assets/img/brand/dark.svg" | relURL }}" id="navbar-logo">
               <sup class="text-muted text-xs text-uppercase">Docs</sup>
           </a>
           <!-- Live preview -->
-          <ul class="navbar-nav flex-row align-items-center d-lg-none">
+          <!-- <ul class="navbar-nav flex-row align-items-center d-lg-none">
               <li class="nav-item">
                   <a href="../index.html" class="nav-link nav-link-icon"><i data-feather="eye"></i></a>
               </li>
-          </ul>
+          </ul> -->
           <!-- Navbar nav -->
           <div class="collapse navbar-collapse" id="navbar-main-collapse">
               <!-- Right menu -->
@@ -48,7 +48,7 @@
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
-                  选择语言
+                  {{ T "ui.lang.choose" }}
                 </a>
                 {{ partial "langs.html" . }}
               </li>

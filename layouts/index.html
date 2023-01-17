@@ -4,10 +4,10 @@
   <div class="header">
     <h1>Document</h1>
     <div class="logo">
-      <img src="/assets/img/brand/dark.svg" alt="{{ .Site.Title }}" role="presentation" />
+      <img src="{{ "assets/img/brand/dark.svg" | relURL}}" alt="{{ .Site.Title }}" role="presentation" />
     </div>
     <h2>
-      {{ T "quick doc" }}<br/>
+      {{ T "quick doc" }}<br />
       {{ T "hugo static generate" }}
     </h2>
     <div class="bttns">
@@ -18,17 +18,17 @@
   <div class="resource-list">
     <ul>
       <li>
-        <a href="{{ relLangURL "docs/quick-start#started" }}">1.{{ T "homeStep1" }}</a>
+        <a href="{{ relLangURL "docs/quick-start#创建站点" }}">1.{{ T "homeStep1" }}</a>
       </li>
       <li>
-        <a href="{{ relLangURL "docs/quick-start" }}">
+        <a href="{{ relLangURL "docs/quick-start#添加主题" }}">
           2.{{ T "home.step2" }}
-          </a>
+        </a>
       </li>
       <li>
-         <a href="{{ relLangURL "docs/quick-start" }}">
+        <a href="{{ relLangURL "docs/quick-start#启动本地开发" }}">
           3.{{ T "home.step3" }}
-         </a>
+        </a>
       </li>
     </ul>
   </div>

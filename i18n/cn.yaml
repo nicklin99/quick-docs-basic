@@ -20,3 +20,5 @@
   translation: "编辑页面"
 - id: ui.md.view
   translation: "查看页面"
+- id: ui.lang.choose
+  translation: "选择语言"

@@ -20,3 +20,5 @@
   translation: "Edit this page"
 - id: ui.md.view
   translation: "View this page"
+- id: ui.lang.choose
+  translation: "Language"

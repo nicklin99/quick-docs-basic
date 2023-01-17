@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html{{ with site.Language | default site.Language.Lang }} lang="{{ if eq .Lang "cn" }}zh-CN{{ else }}{{.}}{{ end }}" {{ end }}>
-    {{- partial "docs/head.html" . -}}
+    {{ partial "docs/head.html" . }}
     <body class="docs">
         <!-- Nav -->
         {{ partial "docs/header.html" .}}
@@ -17,7 +17,6 @@
                 <div class="col-xl-9 docs-content pb-5">
                     {{ block "main" . }}
                     <!-- Docs title -->
-                    
                     <!-- Docs content -->
                     {{ end }}
                 </div>
@@ -29,5 +28,4 @@
         </div>
         {{partial "docs/footer.html" .}}
     </body>
-
-    </html>
+</html>

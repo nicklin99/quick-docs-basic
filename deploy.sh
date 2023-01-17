@@ -9,7 +9,7 @@ set -e
 npm run build
 
 # 进入生成的文件夹
-cd public
+cd website/public
 
 git init
 git add -A
