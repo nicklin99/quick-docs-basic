@@ -40,18 +40,24 @@
           </a> -->
           <div>
             <ul class="navbar-nav">
+              {{- if .Site.Params.github}}
               <li class="nav-item">
                 <a class="nav-link" href="{{.Site.Params.github}}"><i data-feather="github"></i>Github</a>
               </li>
+              {{- end -}}
+              {{- if .Site.Params.gitee -}}
               <li class="nav-item">
                 <a class="nav-link" href="{{.Site.Params.gitee}}">Gitee</a>
               </li>
+              {{- end -}}
+              {{- if .Site.Home.AllTranslations -}}
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
                   {{ T "ui.lang.choose" }}
                 </a>
                 {{ partial "langs.html" . }}
               </li>
+              {{- end -}}
             </ul>
           </div>
       </div>

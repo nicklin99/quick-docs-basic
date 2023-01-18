@@ -1,6 +1,10 @@
 baseURL: /
 languageCode: cn
-theme: 'quick-docs-basic'
 copyright: 'MIT Licensed | Copyright © 2022-present Nick Lin'
 defaultContentLanguage: cn
 disableHugoGeneratorInject: true
+
+module:
+  proxy: https://proxy.golang.com.cn,direct
+  imports:
+  - path: github.com/nicklin99/quick-docs-basic

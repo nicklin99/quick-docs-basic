@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "dev": "cd website && hugo server -D --disableFastRender --themesDir ../..",
-    "build": "cd website && hugo -D --themesDir ../.."
+    "dev": "cd website && hugo server -D --disableFastRender",
+    "build": "cd website && hugo -D"
   },
   "dependencies": {
     

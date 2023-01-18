@@ -59,9 +59,9 @@ hugo new site quick-docs-start -f yaml
 hugo mod init github.com/nicklin99/quick-docs-start
 ```
 
-2. 配置依赖包
+生成`go.mod`文件
 
-此操作类似`npm install bootstrap`, 只是`npm 将安装和配置一步到位了`
+2. 配置hugo module
 
 go module，还是分开操作的，config.yaml 配置所需要的依赖包
 
@@ -74,15 +74,23 @@ module:
 
 3. 安装依赖模块`quick-docs-basic`
 
-此操作类似`npm install`下载安装依赖
+此操作类似`npm install`下载安装依赖，同时更新go.mod require
 
 ```bash
+# tidy一步到位, 类似 npm install --save，整理依赖，移除没用的，安装go.mod没有配置的
+hugo mod tidy
+
+# 更细颗粒操作使用下面命令
+
+# 安装单个依赖
 hugo mod get github.com/nicklin99/quick-docs-basic
+# 批量更新
+hugo mod get -u
 ```
 
-安装后就可以启动了
+配置后就可以启动了
 
-4. 启动
+1. 启动
 
 ```bash
 hugo server -D
