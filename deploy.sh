@@ -11,6 +11,8 @@ npm run build
 # 进入生成的文件夹
 cd website/public
 
+echo 'quickdocs.wfell.top' > CNAME
+
 git init
 git add -A
 git commit -m 'deploy'
