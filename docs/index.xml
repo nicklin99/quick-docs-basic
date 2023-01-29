@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>欢迎浏览文档 on 极速文档</title>
+    <link>/docs/</link>
+    <description>Recent content in 欢迎浏览文档 on 极速文档</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>cn</language>
+    <copyright>MIT Licensed | Copyright © 2022-present Nick Lin</copyright>
+    <lastBuildDate>Sat, 14 Jan 2023 22:45:00 +0800</lastBuildDate><atom:link href="/docs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>快速上手</title>
+      <link>/docs/quick-start/</link>
+      <pubDate>Sat, 14 Jan 2023 23:25:55 +0800</pubDate>
+      
+      <guid>/docs/quick-start/</guid>
+      <description>安装Hugo 直接去github 最近发布页面 https://github.com/gohugoio/hugo/releases/latest,下载扩展版
+0.109.0是最新版本号 hugo_extended表示扩展版 根据系统选择下载对应的包
+macos下载 hugo_extended_0.109.0_darwin-universal.tar.gz windows下载 hugo_extended_0.109.0_windows-amd64.zip linux下载使用包管理安装 下载后解压放到系统路径下，
+macos 可以将 hugo 放到 /usr/local/bin windows 直接安装msi文件 linux由包管理自动安装 终端查看版本号
+hugo version # 返回 hugo v0.109.0-47b12b83e636224e5e601813ff3e6790c191e371+extended darwin/amd64 BuildDate=2022-12-23T10:38:11Z VendorInfo=gohugoio 返回说明hugo安装成功
+创建站点 终端 cd 到项目目录
+hugo new site quick-docs-start -f yaml 生成项目根目录quick-docs-start -f yaml 使用yaml格式配置文件，默认toml不常用，或者 -f json, 推荐用yaml 添加主题模块 将网站初始化模块 此操作类似npm init生成package.json
+nicklin99 换成自己的 username quick-docs-start 换成自己的site名称
+hugo mod init github.com/nicklin99/quick-docs-start 生成go.mod文件
+配置hugo module go module，还是分开操作的，config.yaml 配置所需要的依赖包
+module: proxy: https://proxy.</description>
+    </item>
+    
+    <item>
+      <title>开发</title>
+      <link>/docs/dev/</link>
+      <pubDate>Sun, 15 Jan 2023 11:50:44 +0800</pubDate>
+      
+      <guid>/docs/dev/</guid>
+      <description>在hugo中，页面由对应的模板渲染，默认的模板文件是html,位于 themes/&amp;lt;theme-name&amp;gt;/layouts/_default目录下， 主要由 baseof.html, list.html, single.html组成
+theme位置也可以通过启动命令参数 --themesDir指定，查看根目录package.json文件
+hugo页面类型
+默认的页面模板存放在 _default 目录下
+homepage 首页 layouts/index.html list 列表页 对应 layouts/_default/list.html single 详情页 layouts/_default/single.html 404 layout/404.html ├── _default │ ├── baseof.html │ ├── list.html │ └── single.html └── index.html 文档中心首页 新建 docs/_index.md,默认一级目录为 section.html 作为文档栏目页
+侧边栏菜单配置 新建 partials/docs/sidebar.html 用于显示侧边
+通过 Site.Menus 变量读取 读取数据通过md文件配置 菜单排列顺序由 weight 字段控制，越大显示在靠后 文档 https://gohugo.io/variables/menus/
+&amp;lt;div class=&amp;#34;docs-sidebar pt-6 pt-lg-7&amp;#34;&amp;gt; {{ $currentPage := . }} {{ range .Site.Menus.docs }} {{ if .</description>
+    </item>
+    
+    <item>
+      <title>更新</title>
+      <link>/docs/changelog/</link>
+      <pubDate>Sun, 15 Jan 2023 11:50:44 +0800</pubDate>
+      
+      <guid>/docs/changelog/</guid>
+      <description>[0.1] 完成主要功能如下
+首页 导航栏基本功能 选择语言 主导航 文档基本功能 代码拷贝、高亮 侧边栏根据content文件结构显示 面包屑 目录 编辑md文件、查看md文件 </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-CN" >
+    <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  
+  
+  <title>欢迎浏览文档 | 极速文档</title>
+  
+  <style>
+      @keyframes hidePreloader {
+          0% {
+              width: 100%;
+              height: 100%;
+          }
+
+          100% {
+              width: 0;
+              height: 0;
+          }
+      }
+
+      body>div.preloader {
+          position: fixed;
+          background: white;
+          width: 100%;
+          height: 100%;
+          z-index: 1071;
+          opacity: 0;
+          transition: opacity .5s ease;
+          overflow: hidden;
+          pointer-events: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+
+      body:not(.loaded)>div.preloader {
+          opacity: 1;
+      }
+
+      body:not(.loaded) {
+          overflow: hidden;
+      }
+
+      body.loaded>div.preloader {
+          animation: hidePreloader .5s linear .5s forwards;
+      }
+  </style>
+  <script>
+      window.addEventListener("load", function() {
+          setTimeout(function() {
+              document.querySelector('body').classList.add('loaded');
+          }, 300);
+      });
+  </script>
+  
+  <link rel="icon" href="/assets/img/brand/favicon.png" type="image/png">
+  <link rel="stylesheet" href="/assets/libs/@fortawesome/fontawesome-free/css/all.min.css">
+  
+  <link rel="stylesheet" href="/assets/css/quick-website.css">
+  
+  <link rel="stylesheet" href="/css/docs.css">
+</head>
+    <body class="docs">
+        
+        <header class="header" id="header-main">
+  
+  <nav class="navbar navbar-main navbar-expand-lg fixed-top navbar-shadow navbar-light bg-white border-bottom" id="navbar-main">
+      <div class="container-fluid justify-content-between">
+          
+          <div class="navbar-user d-lg-none">
+              <ul class="navbar-nav flex-row align-items-center">
+                  <li class="nav-item">
+                      <a href="#" class="nav-link nav-link-icon sidenav-toggler" data-action="sidenav-pin" data-target="#sidenav-main"><i data-feather="menu"></i></a>
+                  </li>
+              </ul>
+          </div>
+          
+          <a class="navbar-brand" href="/">
+              <img alt="Image placeholder" src="/assets/img/brand/dark.svg" id="navbar-logo">
+              <sup class="text-muted text-xs text-uppercase">Docs</sup>
+          </a>
+          
+          
+          
+          <div class="collapse navbar-collapse" id="navbar-main-collapse">
+              
+              <ul class="navbar-nav align-items-center mx-auto">
+                  
+                    <li class="nav-item">
+                      <a href="/docs/" class="nav-link">
+                        文档
+                      </a>
+                    </li>
+                  
+              </ul>
+          </div>
+          
+          <div>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="https://github.com/nicklin99/quick-docs-basic"><i data-feather="github"></i>Github</a>
+              </li><li class="nav-item">
+                <a class="nav-link" href="https://gitee.com/wfell/quick-docs">Gitee</a>
+              </li><li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+                  选择语言
+                </a>
+                <ul class="dropdown-menu">
+  
+  <li>
+    <a class="dropdown-item" href="/en/">English</a>
+  </li>
+  
+  <li>
+    <a class="dropdown-item active" href="/">中文</a>
+  </li>
+  
+</ul>
+              </li></ul>
+          </div>
+      </div>
+  </nav>
+</header>
+        <div class="container-fluid container-docs">
+            
+            <nav class="sidenav navbar navbar-vertical navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+                <div class="scrollbar-inner px-4">
+                    
+                    
+<div class="docs-sidebar pt-6 pt-lg-7">
+  <nav class="nav flex-column">
+  
+  
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+        
+        
+        
+        
+        <a class="nav-link nav-link-page nav-link-1" href="/docs/quick-start/">
+          快速上手
+        </a>
+        
+      
+      
+  
+    
+      
+    
+    
+    
+    
+    
+      
+        <h6 class="mt-4">go</h6>
+      
+      
+        <ul class="nav flex-column">
+          
+            
+            
+    
+    
+    
+    
+    
+      
+        
+        
+        
+        
+        <li class="nav-item nav-item-section">
+          <a class="nav-link" href="/docs/go/template/">
+            template
+          </a>
+        </li>
+        
+      
+      
+        <ul class="nav flex-column">
+          
+            
+            
+    
+    
+    
+    
+    
+      
+        
+        
+        
+        
+        <a class="nav-link nav-link-page" href="/docs/go/template/template-part1/">
+          模板语法(上)
+        </a>
+        
+      
+      
+  
+          
+            
+            
+    
+    
+    
+    
+    
+      
+        
+        
+        
+        
+        <a class="nav-link nav-link-page" href="/docs/go/template/template-part2/">
+          模板语法(中)
+        </a>
+        
+      
+      
+  
+          
+        </ul>
+      
+  
+          
+        </ul>
+      
+  
+    
+      
+    
+    
+    
+    
+    
+      
+        
+        
+        
+        
+        <a class="nav-link nav-link-page nav-link-1" href="/docs/dev/">
+          开发
+        </a>
+        
+      
+      
+  
+    
+      
+    
+    
+    
+    
+    
+      
+        
+        
+        
+        
+        <a class="nav-link nav-link-page nav-link-1" href="/docs/changelog/">
+          更新
+        </a>
+        
+      
+      
+  
+    
+      
+    
+    
+    
+    
+    
+      
+        <h6 class="mt-4">hugo</h6>
+      
+      
+        <ul class="nav flex-column">
+          
+            
+            
+    
+    
+    
+    
+    
+      
+        
+        
+        
+        
+        <a class="nav-link nav-link-page" href="/docs/hugo/page/">
+          页面
+        </a>
+        
+      
+      
+  
+          
+        </ul>
+      
+  
+    
+  
+
+  
+
+  
+</nav>
+</div>
+                </div>
+            </nav>
+            
+            <div class="main-content row position-relative pb-5">
+                <div class="col-xl-9 docs-content pb-5">
+                    
+
+<div class="docs-title docs-title-list">
+    <h1>欢迎浏览文档</h1>
+    <p class="lead mb-0">文档指南主要介绍如何快速创建一个文档，包括如何使用模板</p>
+</div>
+
+<h2 id="关于极速文档主题">关于极速文档主题</h2>
+<p>极速文档英文命名为Quick Docs Baisc，是基于Hugo制作的一个文档类型基础主题，快速搭建技术文档，快速显示给用户。</p>
+<p>本主题不会生成静态文件，也不是一个网站，请使用Hugo快速搭建站点配套使用。</p>
+<h2 id="准备开始">准备开始？</h2>
+<p>在<a href="/docs/quick-start/">快速上手</a>将展示如何使用搭建文档网站</p>
+
+<ul class="list-group list-group-flush doc-entry">
+    
+    
+        <li class="list-group-item">
+            <a style="font-size: 1.2rem;" href="/docs/quick-start/">快速上手</a>
+            <p>快速上手使用极速文档</p>
+        </li>
+    
+        <li class="list-group-item">
+            <a style="font-size: 1.2rem;" href="/docs/go/">go</a>
+            <p>Go Template介绍</p>
+        </li>
+    
+        <li class="list-group-item">
+            <a style="font-size: 1.2rem;" href="/docs/dev/">开发</a>
+            <p>开发极速文档的一些过程和笔记，以及当时对hugo的理解</p>
+        </li>
+    
+        <li class="list-group-item">
+            <a style="font-size: 1.2rem;" href="/docs/changelog/">更新</a>
+            <p>获取最新主题更新信息</p>
+        </li>
+    
+        <li class="list-group-item">
+            <a style="font-size: 1.2rem;" href="/docs/hugo/">hugo</a>
+            <p></p>
+        </li>
+    
+    </ul>
+
+
+                </div>
+                <div class="col-xl-3 docs-sidebar d-none d-xl-block">
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+
+<script src="/assets/libs/jquery/dist/jquery.min.js"></script>
+<script src="/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/libs/feather-icons/dist/feather.min.js"></script>
+
+<script src="/assets/libs/clipboard/dist/clipboard.min.js"></script>
+
+<script src="/assets/js/quick-website.js"></script>
+
+<script>
+    feather.replace({
+        'width': '1em',
+        'height': '1em'
+    })
+</script>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>template on 极速文档</title>
+    <link>/docs/go/template/</link>
+    <description>Recent content in template on 极速文档</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>cn</language>
+    <copyright>MIT Licensed | Copyright © 2022-present Nick Lin</copyright>
+    <lastBuildDate>Mon, 16 Jan 2023 00:36:49 +0800</lastBuildDate><atom:link href="/docs/go/template/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>模板语法(上)</title>
+      <link>/docs/go/template/template-part1/</link>
+      <pubDate>Mon, 16 Jan 2023 00:36:49 +0800</pubDate>
+      
+      <guid>/docs/go/template/template-part1/</guid>
+      <description>通过将模板应用于数据结构来执行模板。模板语法引用数据结构的元素（通常是结构的字段或映射中的键），以控制执行并派生要显示的值。模板的执行遍历结构并设置光标，用.点表示当前结构位置中的值
+注释 {{/* 注释 */}} 变量 显示输出、打印都一个意思
+{{ .Title }} {{ print .Title }} 这里的.表示Page变量
+条件判断 if {{ if condition }} T1 {{ end }} {{ if condition }} T1 {{ else }} T0 {{ end }} {{ if condition }} T1 {{ else if condition }} T0 {{ end }} 循环迭代 {{range Variable}} T1 {{end}} {{range Variable}} T1 {{else}} T0 {{end}} {{break}} {{continue}} 模板 name命名的模板渲染，数据nil
+{{template &amp;#34;name&amp;#34;}} name命名的模板渲染，数据 data</description>
+    </item>
+    
+    <item>
+      <title>模板语法(中)</title>
+      <link>/docs/go/template/template-part2/</link>
+      <pubDate>Mon, 16 Jan 2023 00:36:49 +0800</pubDate>
+      
+      <guid>/docs/go/template/template-part2/</guid>
+      <description>模板应用变量与函数，代码示例中变量和函数都来自于Hugo引入的数据结构
+字符串 开始包含/en/
+{{if not (hasPrefix .URL &amp;#34;/en/&amp;#34;) }} {{ end }} 是否存在语言前缀，默认语言没有前缀
+{{ if not $currentPage.Site.LanguagePrefix }} {{ end }} 菜单是否当前
+.IsMenuCurrent 上下文是 Page &amp;ldquo;docs&amp;rdquo; . 后面的点表示当前的 MenuEntry // 引用.Page变量 {{ $page = .}} {{ if $page.IsMenuCurrent &amp;#34;docs&amp;#34; . }} active{{ end }} 内置函数 比较 x y eq 等于 {{if eq x y}} ne 不等于 {{if ne x y}} lt 小于 {{if lt x y}} le 小于等于 {{if le x y}} gt 大于 {{if gt x y}} ge 大于等于 {{if ge x y}} 逻辑判断 and 和（一个假则假，真返回最后一个真值） or 或（一个真则真，真返回第一个真值） not 非 {{and x y }} {{or x y}} {{not x}} 其他 print 打印 printf 格式输出 println 换行输出 len 字串/数组长度 index 指向索引 call 调用函数 {{- print &amp;#34;liuBei&amp;#34;}} {{- printf &amp;#34;%d&amp;#34; $i}} {{- println $i}} {{ $l := len &amp;#34;liuBei&amp;#34; }} {{ $i := index 数组 索引 }} 布尔值 not 集合 range 支持 map、array、slice 3种集合类型</description>
+    </item>
+    
+  </channel>
+</rss>
